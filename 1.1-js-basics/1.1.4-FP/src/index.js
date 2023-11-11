@@ -23,12 +23,11 @@ function convertCSVToTownList(CSV) {
         .filter(split_town => split_town.match(/^(\d{2}\.\d{2}\,){2}[А-Яа-яІіЇї\s]*\,\d{1,}\,/gm))
         .map(split_town => {
             const filtered_split_town_properties_list = split_town.split(',').slice(0, 4)
-            const filtered_split_town_properties_object = new Map([
-                ['x', filtered_split_town_properties_list[0]],
-                ['y', filtered_split_town_properties_list[1]],
-                ['name', filtered_split_town_properties_list[2]],
-                ['popularity', filtered_split_town_properties_list[3]]
-            ])
+            const filtered_split_town_properties_object = new Map()
+            const town_map_keys = ['x', 'y', 'name', 'popularity']
+            filtered_split_town_properties_list.forEach((split_town_property, index) => {
+                filtered_split_town_properties_object.set(town_map_keys[index], split_town_property)
+            })
             return filtered_split_town_properties_object
         })
         .sort((pre_filtered_split_town, curr_filtered_split_town) =>
@@ -41,6 +40,7 @@ function convertCSVToTownList(CSV) {
 
             const towns_properties = Array.from(curr_town)
             towns_properties.splice(2, 1)
+            towns_properties.splice(0, 2)
 
             new Map(towns_properties).forEach((value, key) => {
                 accumulator[town_name][key] = value
@@ -48,7 +48,20 @@ function convertCSVToTownList(CSV) {
             return accumulator
         }, {})
 
-    return converted_town_list
+    function convertTownsListToString(towns_list) {
+        let towns_list_string = ''
+        Object.keys(towns_list).forEach(town_name => {
+            const {rating, x, y, popularity} = towns_list[town_name]
+            const town_information_string =
+                `The town named "${town_name}" has the ${rating} place in rating. ${popularity} people has voted for its biggest popularity with Ukrainian towns. \n`
+            towns_list_string += town_information_string
+        })
+        return towns_list_string
+    }
+
+    const converted_towns_to_string = convertTownsListToString(converted_town_list)
+
+    return converted_towns_to_string
 }
 
 console.log(convertCSVToTownList(CSV_towns_list_example))
