@@ -1,0 +1,39 @@
+@media (max-width: 1080px) and (min-width: 720px) {
+    .main .main__container {
+        width: calc(92.5% - 50px) !important;
+    }
+}
+
+@media (max-width: 1080px) and (min-width: 576px) {
+    .main .main__container {
+        width: 95% !important;
+    }
+    .main .main__container .url_list {
+        width: 100% !important;
+    }
+    .main .main__container .description {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 720px) and (min-width: 576px) {
+    .main__container .main-info {
+        padding: 10px 25px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .main .main__container {
+        width: 82.5% !important;
+    }
+    .main .main__container .url_list {
+        width: 100% !important;
+    }
+    .main .main__container .main-info {
+        padding: 10px !important;
+        text-align: center;
+    }
+    .main .main__container .description {
+        width: 100% !important;
+    }
+}

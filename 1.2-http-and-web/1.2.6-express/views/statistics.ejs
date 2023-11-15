@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./templates/head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="/styles/pages/statistics.css" />
+    <title>HTML5 Boilerplate</title>
+</head>
+<body>
+    <canvas id="confetti"></canvas>
+    <div class="wrapper">
+        <%- include ("./templates/header.ejs") %>
+        <main class="main">
+            <div class="main__container">
+                <div class="description">
+                    <p>Hello there!</p>
+                </div>
+                <div class="main-info">Here are the list of url you have visited: </div>
+                <ul class="url-list">
+                    <% url_list.forEach(el => {%>
+                        <li><div><div><%= el[0] %></div><div><%= el[1] %></div></div></li>
+                       <%});
+                    %>
+                </ul>
+            </div>
+        </main>
+        <%- include ('./templates/footer.ejs') %>
+    </div>
+    <script type="text/javascript" src="/scripts/confetti-effect.js"></script>
+</body>
+</html>

@@ -24,7 +24,7 @@ const test_string_2 = `GET /doc/test.html HTTP/1.1`
 function parseTcpStringAsHttpRequest(string) {
     const string_regexp_elements = {
         'method': new RegExp('^[A-Z]{3,}', 'gm'), // possible methods: GET | PUT | DELETE | POST
-        'uri': new RegExp('(\\/[A-Za-z]*)+\\.[a-z]+', 'gm'), // possible methods: /docs/tests/index.html
+        'uri': new RegExp('(\\/[A-Za-z]*)+\\.[a-z]+', 'gm'), // possible methods: /docs/tests/statistics.ejs
         'headers': new RegExp('[A-Za-z\\-]+\\:.*', 'gm'), // Content-Length: 35
         'body': new RegExp('.*=.*&.*=.*', 'gm') // bookId=12345&author=Tan+Ah+Teck
     }

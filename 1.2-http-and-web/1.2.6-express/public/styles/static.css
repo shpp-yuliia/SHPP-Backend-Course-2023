@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('ttf')
+}
+
+:root {
+    --page-background: #3e3e3e;
+    --text-color: #c9c9c9;
+    --text-size: 18px;
+    --text-font-family: 'Montserrat', monospace
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    font-size: var(--text-size);
+    font-family: var(--text-font-family);
+    letter-spacing: 1.5px;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background: var(--page-background)
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, .25);
+    align-items: center;
+}
+
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main .main__container {
+    height: calc(100% - 50px);
+    width: calc(75% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(45, 45, 45, 0.5);
+    position: absolute;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+}
+
+.main .main__container .description {
+    width: 37.5%;
+    background: rgba(61, 61, 115, 0.5);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .main__container .description p {
+    height: 50px;
+    padding: 0 37.5px;
+    background: rgb(132, 115, 208);
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.footer {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+}

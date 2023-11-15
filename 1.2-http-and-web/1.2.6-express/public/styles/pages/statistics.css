@@ -1,0 +1,45 @@
+.main .main__container .main-info {
+    background: rgba(255, 255, 255, .5);
+    padding: 20px 50px;
+    color: #3a3a3a;
+}
+
+.main .main__container .url-list {
+    width: 82.5%;
+    height: 375px;
+    background: white;
+    padding: 10px 10px 5px 10px;
+    border: 10px solid #484848;
+    box-sizing: border-box;
+    overflow: auto;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.main .main__container .url-list li {
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, .5);
+    list-style-type: none;
+}
+
+.main .main__container .url-list li div {
+    font-size: 16px;
+    color: #3a3a3a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main .main__container .url-list li div div {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+/* --- additional effect --- */
+
+#confetti {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

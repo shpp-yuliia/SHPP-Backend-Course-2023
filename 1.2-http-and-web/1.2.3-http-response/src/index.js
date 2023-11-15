@@ -1,3 +1,5 @@
+import {parseTcpStringAsHttpRequest} from "../../1.2.2-http-request/src/index.js";
+
 function processHttpRequest ({method, uri, headers = '', body = ''}) {
     const regexp_response_200 = /\/sum\?nums=(,?\d,?)+/gm
     const regexp_response_404 = /^\/sum/gm
@@ -72,7 +74,11 @@ const test_3 = {
     }
 } // 400 'Bad Request'
 
+const test_string = `POST /src/index HTTP/1.1
+key=key&login=login`
+
 console.log(processHttpRequest(test_0))
 console.log(processHttpRequest(test_1))
 console.log(processHttpRequest(test_2))
 console.log(processHttpRequest(test_3))
+console.log(parseTcpStringAsHttpRequest(test_string))

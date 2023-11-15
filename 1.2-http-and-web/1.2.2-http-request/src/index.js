@@ -25,7 +25,7 @@ String.prototype.removeUnnecessarySpaces = function () {
 // не звертайте увагу на цю функцію
 // вона потрібна для того, щоб коректно зчитувати вхідні данні
 function readHttpLikeInput(){
-    var fs = require("fs");
+    var fs = import('fs')
     var res = "";
     var buffer = Buffer.alloc ? Buffer.alloc(1) : new Buffer(1);
     let was10 = 0;
@@ -46,11 +46,11 @@ function readHttpLikeInput(){
 let contents = readHttpLikeInput();
 
 // ось цю функцію, власне, і треба написати
-function parseTcpStringAsHttpRequest(string) {
+export function parseTcpStringAsHttpRequest(string) {
 
     const string_regexp_elements = {
         'method': new RegExp('(POST|GET|PUT|DELETE)', 'gm'), // possible methods: GET | PUT | DELETE | POST
-        'uri': new RegExp('(\\/[A-Za-z]*)+(?=[\\s])', 'gm'), // possible methods: /docs/tests/index.html
+        'uri': new RegExp('(\\/[A-Za-z]+)(\\?[A-Za-z]+=([A-Za-z\\d],?)+)+|(\\/[A-Za-z]+)+(?=[\\s])', 'gm'), // possible methods: /docs/tests/statistics.ejs
         'headers': new RegExp('[A-Za-z\\-]+\\:.*', 'gm'), // Content-Length: 35
         'body': new RegExp('.*=.*&.*=.*', 'gm') // bookId=12345&author=Tan+Ah+Teck
     }
@@ -80,5 +80,5 @@ function parseTcpStringAsHttpRequest(string) {
     return filtered_string_elements
 }
 
-http = parseTcpStringAsHttpRequest(contents);
-console.log(JSON.stringify(http, undefined, 2));
+var http = parseTcpStringAsHttpRequest(contents);
+console.log(JSON.stringify(http, undefined, 2))
