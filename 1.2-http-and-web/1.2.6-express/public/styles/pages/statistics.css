@@ -24,8 +24,6 @@
 }
 
 .main .main__container .url-list li div {
-    font-size: 16px;
-    color: #3a3a3a;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,7 +31,7 @@
 
 .main .main__container .url-list li div div {
     font-size: 16px;
-    color: #3a3a3a;
+    color: #d7d7d7;
 }
 
 /* --- additional effect --- */

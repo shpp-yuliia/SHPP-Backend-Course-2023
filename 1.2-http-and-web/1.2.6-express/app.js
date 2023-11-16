@@ -1,10 +1,8 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import fs from 'fs'
-import ejs from 'ejs'
 import path from "path"
 import { fileURLToPath } from 'url'
-import * as url from "url";
 import getUriVisitsAmount from "./utils/get-uri-visits-amount.js";
 
 dotenv.config({path: './env-files/.env'})
@@ -38,7 +36,7 @@ app.use((req, res, next) => {
     }
 })
 
-app.use('/statistics', (req, res, next) => {
+app.use('/statistics', (req, res) => {
 
     const url_list = fs
         .readFileSync(uri_list_file, {encoding: 'utf8'})
