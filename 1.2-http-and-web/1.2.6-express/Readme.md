@@ -1,3 +1,7 @@
 ## Plans
-*  fix problems with font-family
-*  add eslint
+*  Fix problems with font-family
+*  Add eslint
+
+- [x] Added eslint
+
+- [x] Fixed problems with font-family connection
