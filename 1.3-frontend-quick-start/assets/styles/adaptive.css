@@ -1,0 +1,35 @@
+@media (max-width: 625px) {
+    .header {
+        height: 225px !important;
+        justify-content: center;
+    }
+    .header__wrapper {
+        height: 75% !important;
+        gap: 15px;
+    }
+    .additional-info {
+        flex-direction: column !important;
+    }
+}
+
+@media (max-width: 610px) {
+    .main__wrapper {
+        flex-direction: column !important;
+        gap: 50px !important;
+    }
+    .education-list, .education-list__element, .element__list, .section.education, .education-list, .section.experience {
+        align-items: center;
+    }
+    .description-list__wrapper {
+        width: 100%;
+    }
+    .description-list__element {
+        margin-left: 0 !important;
+    }
+    .description-list__element::before {
+        display: none;
+    }
+    .title {
+        font-size: 18px;
+    }
+}
